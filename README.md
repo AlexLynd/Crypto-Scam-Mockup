@@ -1,5 +1,5 @@
 # Crypto Scam Mockup Webpage
-This repository contains code for a mockup cryptocurrency scamming website, as [showcased in an OWASP Zap demonstration on Hak5](https://youtube.com/Hak5).
+This repository contains code for a mockup cryptocurrency scamming website, as [showcased in an OWASP Zap demonstration on Hak5](https://www.youtube.com/watch?v=VmUhz630rCk).
 
 <p align="center">
   <img src="images/mockup.png" width="700px">
@@ -10,7 +10,7 @@ This repository contains code for a mockup cryptocurrency scamming website, as [
 
 ### About
 This application demonstrates the weakness of improper user input validation, since the "private wallet keys" are only validated on the client side via `index.html`.  
-By creating a raw `POST` request to `process.php`, we can bypass the validation and spam a server with fake cryptocurrency private keys, as well as the [entire bee movie script]().
+By creating a raw `POST` request to `process.php`, we can bypass the validation and spam a server with fake cryptocurrency private keys, as well as the [entire bee movie script](https://www.youtube.com/watch?v=VmUhz630rCk).
 
 ### Setup Guide
 To follow this setup guide you'll need a Linux computer (we used a Raspberry Pi).
@@ -80,7 +80,7 @@ var re = new RegExp("^0x[a-fA-F0-9]{64}$");
         // execute code if successful
     }
 ```
-Using the following [regular expression](), we can create a simple filter for user input that matches a 64 bit hex address.
+Using the following [regular expression](https://regexr.com/), we can create a simple filter for user input that matches a 64 bit hex address.
 ```
 ^0x[a-fA-F0-9]{64}$
 ```
@@ -105,3 +105,4 @@ header("Content-Type: application/json");
   ```
 This means that any raw API requests made directly to `x.x.x.x/process.php` will be logged, since the site doesn't have proper input validation, and since the private keys aren't actually being checked against anything!  
 We sometimes encounter sites with poor input sanitization or client-side validation which makes it easy to spam a server with bogus data.  Check out our video below to see how we spammed a real crypto scamming site using OWASP Zap! 
+[Hak5 - Using OWASP Zap to Spam Crypto Scammers](https://www.youtube.com/watch?v=VmUhz630rCk)
