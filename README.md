@@ -104,5 +104,5 @@ header("Content-Type: application/json");
   }
   ```
 This means that any raw API requests made directly to `x.x.x.x/process.php` will be logged, since the site doesn't have proper input validation, and since the private keys aren't actually being checked against anything!  
-We sometimes encounter sites with poor input sanitization or client-side validation which makes it easy to spam a server with bogus data.  Check out our video below to see how we spammed a real crypto scamming site using OWASP Zap! 
+We sometimes encounter sites with poor input sanitization or client-side validation which makes it easy to spam a server with bogus data.  Check out our video below to see how we spammed a real crypto scamming site using OWASP Zap!   
 [Hak5 - Using OWASP Zap to Spam Crypto Scammers](https://www.youtube.com/watch?v=VmUhz630rCk)
